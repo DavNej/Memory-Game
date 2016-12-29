@@ -1,3 +1,47 @@
 body{
     background-color:#282a2d;
+    height: 100vh;
+}
+
+header{
+    height: 6%;
+    text-align: center;
+}
+
+header button{
+    margin: auto;
+    /*margin-top: 3%;*/
+}
+
+.container.first{
+    height: 94%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.row{
+    height: 25%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.card{
+    height : 100%;
+    margin-left: 6%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+#popup{
+    display: none;
+}
+
+.modal-body{
+    text-align: center;
+}
+
+#congrats{
+    text-align: center;
 }
