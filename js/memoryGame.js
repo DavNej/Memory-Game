@@ -5,7 +5,7 @@ var MemoryGame = {};
  MemoryGame.selectedCards = 0;
  MemoryGame.firstCard = 0;
  MemoryGame.secondCard = 0;
- MemoryGame.pairs=6;
+ MemoryGame.pairs=0;
 
  MemoryGame.paused = false;
 
@@ -58,9 +58,8 @@ MemoryGame.shuffle = function(array) {
 
 MemoryGame.pick =function(e){
     
-    if (!MemoryGame.paused){       
+    if (!MemoryGame.paused && !e.target.getAttribute("clickable")){       
         //show
-
 
         e.target.style.backgroundImage = "url(" + MemoryGame.imageSources[e.target.id] + ")";
         console.log('Hit!');
@@ -84,7 +83,8 @@ MemoryGame.pick =function(e){
 MemoryGame.compare = function(){
     if(MemoryGame.paused){
         if (MemoryGame.firstCard.style.backgroundImage == MemoryGame.secondCard.style.backgroundImage){
-            //MemoryGame.firstCard.setAttribute("picked", "true");        
+            MemoryGame.firstCard.setAttribute("clickable", false);
+            MemoryGame.secondCard.setAttribute("clickable", false);
             MemoryGame.paused = false;
             MemoryGame.selectedCards = 0;
             MemoryGame.pairs++;
@@ -92,7 +92,7 @@ MemoryGame.compare = function(){
          }
 
         //return card
-        else if(MemoryGame.firstCard.style.backgroundImage != MemoryGame.secondCard.style.backgroundImage){
+        else{
             setTimeout(function(){
                 MemoryGame.firstCard.style.backgroundImage = MemoryGame.back;
                 MemoryGame.secondCard.style.backgroundImage = MemoryGame.back;
